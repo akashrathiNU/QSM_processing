@@ -13,6 +13,7 @@ function run_QSM_pipeline_bold(subID)
     clc
 
     % Add STISuite to path
+    %% ADJUST THIS PATH WITH STISsuite DIRECTORY
     addpath(genpath('/projects/b1108/studies/BD2/scripts/QSM_libraries/STISuite_V3.0'))
 
     %% --- Parameters ---
@@ -22,7 +23,8 @@ function run_QSM_pipeline_bold(subID)
     padsize = [12 12 12];
     TE = [3.01, 7.83, 12.65, 17.08, 21.12, 25.21, 29.25, 33.34];
 
-    %% --- File paths ---
+    %% --- Output File paths ---
+    %% ADJUST THIS PATH WITH OUTPUT DIRECTORY
     proc_dir = fullfile('/projects/b1108/studies/BD2/data/processed/neuroimaging/STI_TIM', ...
         ['sub-' subID], 'ses-1');
 
@@ -87,6 +89,8 @@ function run_QSM_pipeline_bold(subID)
 
     %% --- Average susceptibility ---
     QSM_avg = mean(QSM, 4);
+    
+    %% ADJUST THIS PATH WITH OUTPUT DIRECTORY
     out_path = fullfile('/projects/b1108/studies/BD2/data/processed/neuroimaging/STI_TIM',['sub-' subID], 'ses-1', ['sub-', subID,'_QSM_avg.nii']);
 
     niftiwrite(QSM_avg, out_path);
