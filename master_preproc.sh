@@ -8,8 +8,12 @@ module load matlab
 module load fsl
 . ${FSLDIR}/etc/fslconf/fsl.sh
 
+# ADJUST THIS PATH WITH RAW DATA DIRECTORY (BIDS)
 raw_dir="/projects/b1108/studies/BD2/data/raw/neuroimaging/bids/sub-${sub}/ses-1/fmap"
+
+#ADJUST THIS PATH WITH OUTPUT DIRECTORY
 proc_dir="/projects/b1108/studies/BD2/data/processed/neuroimaging/STI_TIM/sub-${sub}/ses-1"
+
 mkdir -p $proc_dir
 
 # Check for files
